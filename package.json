@@ -4,8 +4,11 @@
   "description": "",
   "main": "first.js",
   "comment": "Below scripts that will be executed when npm command is executed (npm run <custom keyword, like start-server>, else npm <regular keyword>)",
+  "comment_nodemon": "instead of typing nodemon <script>, we can make a shortcut like npm start :",
+  "comment_local": "scripts inside scripts: are executed locally and not globaly. So typing 'nodemon' in terminal will fail !",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,7 @@
     "url": "https://github.com/ii02735/learnNodeJS/issues"
   },
   "homepage": "https://github.com/ii02735/learnNodeJS#readme",
+  "devDependencies_comment":"installed from npm like composer for PHP",
   "devDependencies": {
     "nodemon": "^1.19.3"
   }

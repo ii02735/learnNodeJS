@@ -54,8 +54,8 @@ console.log(f1); //will print 'bonjour'
 
 //template literal
 
-const name = "john";
+const nameTest = "john";
 const action = "learning";
 
-console.log(`${name} is ${action}`);
+console.log(`${nameTest} is ${action}`);
 

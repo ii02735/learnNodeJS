@@ -81,7 +81,21 @@ function requestHandler(req,res){
             }
             res.writeHead(302, {"Location":"/"}); //Redirection to root (/)
         break;
+        case "/nodemon":
 
+                res.write(`
+                    <html>
+                        <head>
+                            <title>nodemon prowness</title>
+                            <meta charset='utf-8'>
+                        </head>
+    
+                        <body>
+                            <h3>Thanks to nodemon, server restarts automatically after changes !</h3>
+                        </body>
+                    </html>
+                `)
+        break;
         default:
             res.write(`
             <html>

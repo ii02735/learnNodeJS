@@ -1,0 +1,23 @@
+{
+  "name": "learnnode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "first.js",
+  "comment": "Below scripts that will be executed when npm command is executed (npm run <custom keyword, like start-server>, else npm <regular keyword>)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ii02735/learnNodeJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ii02735/learnNodeJS/issues"
+  },
+  "homepage": "https://github.com/ii02735/learnNodeJS#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}

@@ -1,5 +1,5 @@
 /**
- * Express is a NPM dependency that speed up web application conception (routing, middleware, requests, etc.)
+ * Express is a NPM framework that speed up web application conception (routing, middleware, requests, etc.)
  * It is a very used dependency nowdays, but there are still alternatives...
  */
 const http = require('http');
@@ -24,5 +24,7 @@ app.use((req,res,next)=>{
 });
 
 
-http.createServer(app).listen(3001);
+//http.createServer(app).listen(3001); can now be written like :
+
+app.listen(3001);
 

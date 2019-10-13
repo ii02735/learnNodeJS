@@ -8,20 +8,18 @@ const http = require('http');
 
 const express = require("express");
 const app = express();
-/**
- * Creation of a middleware (intermediate that will work on incoming request, kind of filter)
- * @param req : Request
- * @param res : Response
- * @param next : Function (chaining pattern, allow to go to the next middleware)
- */
-app.use((req,res,next)=>{
-    console.log("In middleware");
-    next(); //Allow to go to next middleware
-})
-.use((req,res,next) => {
-    console.log("Next middleware")
-    res.send("<h3>Hello ExpressJS</h3>"); //send is like write, but it sets to text/html automatically
-});
+
+const bodyParser = require("body-parser");
+
+const routerUser = require("./routes/user");
+
+//body-parser is in fact a middleware
+//we'll apply it in order to parse Request object anytime because we had to in order to get form data for example
+
+//extended must be added in order to avoid deprecated warnings
+app.use(bodyParser.urlencoded({extended: true})); //true = use qs library, better than querystring library
+app.use(routerUser);
+
 
 
 //http.createServer(app).listen(3001); can now be written like :

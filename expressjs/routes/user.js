@@ -1,5 +1,6 @@
 //warning : middlewares can act as normal routes, their order doesn't import but middlewares'does !
 //Indeed : routes = EXACT PATHS, middlewares = PATTERNS (order counts !)
+//Higher order for existants routes, lower for exceptionnal cases ("else" at end)
 
 const express = require('express')
 
@@ -18,9 +19,10 @@ router.use("/users",(req,res,next)=>{
 
 router.use("/admin",(req,res,next)=>{
     if(req.query.connected !== "true")
-        res.send(403,"<h2 style='color:red'>Hey ! No trespassing to admin area !</h2>");
+        res.status(403).send("<h2 style='color:crimson'>Hey ! No trespassing to admin area !</h2>");
     else
         next();//If next function is use(), so a middleware, that next will be applied after that middleware
+        //If we don't routerly multiple middlewares together, just don't write next()
 })
 
 //In fact, this is not a middleware here, so the next() will just ALLOW to forward this GET (same for POST) request
@@ -57,9 +59,14 @@ router.post("/submit", (req,res,next)=>{
     res.redirect(302,"/");
 });
 
-//If we don't routerly multiple middlewares together, just don't write next()
-router.use("/",(req,res,next)=>{
-    res.send(`<h3>In middleware with url ${req.url}</h3>`);
+
+//404 error, this is not only for GET, but for ALL requests that ask an unexistant page
+//We don't set a route, because we want to CATCH ALL the remaining routes that are not mentionned at top
+//(there is a lot of them !)
+
+//If we have written that middleware at the top, ALL THE REQUESTS WOULD GET TO THAT MIDDLEWARE FIRST (imperative programming !)
+router.use((req,res,next)=>{
+    res.status(404).send(`<h2 style='color:red'>404 : Page not found !</h2>`);
 })
 
 

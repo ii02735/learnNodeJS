@@ -1,4 +1,5 @@
-//warning : middlewares can act as normal routes, but BE CAREFUL at the DECLARATION ORDER !
+//warning : middlewares can act as normal routes, their order doesn't import but middlewares'does !
+//Indeed : routes = EXACT PATHS, middlewares = PATTERNS (order counts !)
 
 const express = require('express')
 
@@ -13,6 +14,19 @@ const router = express.Router();
  */
 router.use("/users",(req,res,next)=>{
     res.send(`<h3>No user available</h3>`);
+})
+
+router.use("/admin",(req,res,next)=>{
+    if(req.query.connected !== "true")
+        res.send(403,"<h2 style='color:red'>Hey ! No trespassing to admin area !</h2>");
+    else
+        next();//If next function is use(), so a middleware, that next will be applied after that middleware
+})
+
+//In fact, this is not a middleware here, so the next() will just ALLOW to forward this GET (same for POST) request
+//It is recommanded to put middlewares at the top
+router.get("/admin/coor",(req,res,next)=>{
+    res.send("<h2>Hey admin ! Here is your coordinates !</h2>");
 })
 
 //Example of redirection
@@ -47,5 +61,6 @@ router.post("/submit", (req,res,next)=>{
 router.use("/",(req,res,next)=>{
     res.send(`<h3>In middleware with url ${req.url}</h3>`);
 })
+
 
 module.exports = router;

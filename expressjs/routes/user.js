@@ -17,20 +17,6 @@ router.use("/users",(req,res,next)=>{
     res.send(`<h3>No user available</h3>`);
 })
 
-router.use("/admin",(req,res,next)=>{
-    if(req.query.connected !== "true")
-        res.status(403).send("<h2 style='color:crimson'>Hey ! No trespassing to admin area !</h2>");
-    else
-        next();//If next function is use(), so a middleware, that next will be applied after that middleware
-        //If we don't routerly multiple middlewares together, just don't write next()
-})
-
-//In fact, this is not a middleware here, so the next() will just ALLOW to forward this GET (same for POST) request
-//It is recommanded to put middlewares at the top
-router.get("/admin/coor",(req,res,next)=>{
-    res.send("<h2>Hey admin ! Here is your coordinates !</h2>");
-})
-
 //Example of redirection
 router.use("/in-working",(req,res,next)=>{
     res.redirect(301,"/");
@@ -65,6 +51,7 @@ router.post("/submit", (req,res,next)=>{
 //(there is a lot of them !)
 
 //If we have written that middleware at the top, ALL THE REQUESTS WOULD GET TO THAT MIDDLEWARE FIRST (imperative programming !)
+//that middleware must be the LAST
 router.use((req,res,next)=>{
     res.status(404).send(`<h2 style='color:red'>404 : Page not found !</h2>`);
 })

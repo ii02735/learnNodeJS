@@ -6,6 +6,12 @@ const rootDir = require("./util/path");
 
 app.use(bodyparser.urlencoded({ extended: true }));
 
+//see 404.html
+//It allows to resolve files in order to be used in resources (like HTML for CSS...)
+//Now "public" folder has static visibility : if we try to access to a directory that it is in "public", NodeJS will resolve it for us
+//instead of writing href="public/css/style.css", use href="/css/style.css"
+app.use(express.static(path.join(__dirname,"public")));
+
 app.get("/users",(req,res,next)=>{
     //res.sendFile("/views/user.html") -> won't work, refers to OS root directory (views doesn't exist)
     //res.sendFile("./views/user.html") -> won't work, the path must be absolute

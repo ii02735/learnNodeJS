@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [[ -d $1 ]];then
+	mkdir $1
+fi
+
+cd $1
+
+npm init
+npm install --save express
+npm install --save body-parser
+npm install --save-dev nodemon

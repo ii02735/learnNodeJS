@@ -1,4 +1,4 @@
 *.txt
 node_modules
 node_app/node_modules
-expressjs/node_modules
+expressjs/*/node_modules

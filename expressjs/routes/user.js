@@ -6,6 +6,10 @@ const express = require('express')
 
 const router = express.Router();
 
+router.use("/",(req,res,next)=>{
+    res.send(`<h3>Hello world !</h3>`);
+})
+
 /**
  * Creation of a MIDDLEWARE (intermediate that will work on incoming request, kind of filter)
  * @param string : url PATTERN to routerly middleware

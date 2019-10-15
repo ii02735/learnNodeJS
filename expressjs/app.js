@@ -18,19 +18,19 @@ const adminUser = require("./routes/adminRoutes");
 
 //extended must be added in order to avoid deprecated warnings
 app.use(bodyParser.urlencoded({extended: true})); //true = use qs library, better than querystring library
-app.use("/admin",adminUser);
-app.use(routerUser);//warning : we attributed the "/" as existant in the admin router, but not in the RouterUser
-                   //In the upper router, the "/" is not existant, so it will result to a 404
-                   //We can either:
-                   /*
-                    *  1) Put the adminUser router upper --> problem, for / or /admin/ we will have a forbidden message
-                    *  => remember that "/" is used for middlewares ! 
-                    *  or
-                    *  2) Add the "/admin" prefix to the admin router <-- preferred solution (no order changing)
-                    */
+app.use(routerUser);
+app.use("/admin",adminUser);//warning : we attributed the "/" as existant in the admin router, but not in the RouterUser
+                            //In the upper router, the "/" is not existant, so it will result to a 404
+                            //We can either:
+                           /*
+                            *  1) Put the adminUser router upper --> problem, for / or /admin/ we will have a forbidden message
+                            *  => remember that "/" is used for middlewares ! 
+                            *  or
+                            *  2) Add the "/admin" prefix to the admin router <-- preferred solution (no order changing)
+                            */
 
 
-//http.createServer(app).listen(3001); can now be written like :
+//http.createServer(app).listen(3001); can now be written like (thanks to express) :
 
 app.listen(3001);
 

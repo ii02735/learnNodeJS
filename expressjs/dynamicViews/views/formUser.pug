@@ -1,0 +1,19 @@
+extends template.pug
+
+block title
+    title form for new User
+
+block body_content
+    form(method="POST" action="/formSubmit")
+        label(for="username") username :
+        input(name="username" type="text")
+        select(name="type")
+            option(value="devops") DevOps
+            option(value="engineer") IT engineer
+            option(value="dev") IT developer 
+        select(name="access")
+            option(value="root") Root access
+            option(value="Regular") Regular user
+            option(value="limited") Limited user
+        input(type="submit")
+

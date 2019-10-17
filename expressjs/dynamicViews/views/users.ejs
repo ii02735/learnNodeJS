@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users</title>
+</head>
+<body>
+    <h3>Here is the current users</h3>
+    <ul>
+        <% users.forEach(user => { %>
+           <li><%= user.name %></li> 
+           <li><%= user.type %></li>
+           <li style="color:<%= user.access === "root" ? "red" : "blue" %>"><%= user.access %></li>  
+        <% }); %>
+    </ul>
+</body>
+</html>

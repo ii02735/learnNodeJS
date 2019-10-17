@@ -1,0 +1,22 @@
+extends template
+
+block titleStyle
+    title show users
+    link(rel="stylesheet", href="/css/style.css")
+block body
+    if users.length == 0
+        h3 no users for the moment...
+    else
+        h3 #{users.length} found :
+        table
+            thead
+                tr
+                 th name
+                 th occupation
+                 th accesslevel
+            tbody
+               each user in users
+                tr
+                 td= user.name
+                 td= user.firstname
+                 td(style=(user.access === "Unknown" ? "color:red;font-weight:bolder;" : ""))= user.access

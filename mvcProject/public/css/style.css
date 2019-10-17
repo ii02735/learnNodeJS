@@ -1,0 +1,27 @@
+body
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+}
+
+form input[type="text"]
+{
+    display: block;
+}
+
+table
+{
+    border: 1px solid black;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table thead
+{
+    background:gray;
+}
+
+table td, table th
+{
+    padding:1rem;
+    border: 1px solid black;
+}

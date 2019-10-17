@@ -3,8 +3,10 @@ const app = express();
 const rootDir = require("./util/rootDir");
 const path = require("path");
 const routes = require("./routes/routes");
-
+const parser = require("body-parser");
 const expressHbs = require("express-handlebars");
+
+app.use(parser.urlencoded({ extended: true }))
                                     //instead of pug, we define layouts to be inherited in variables
 app.engine("handlebars",expressHbs({defaultLayout: "", layoutsDir: ""})); //to include handlebars template engine, (instead of use set() first)
 //before using a template engine, we must add one to express (much simplier) and not to NODE

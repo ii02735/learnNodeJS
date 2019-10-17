@@ -1,0 +1,15 @@
+extends template
+block titleStyle
+    title Form for new User
+    link(rel="stylesheet", href="/css/style.css")
+block body
+    form(method="post" action="/submitForm")
+        label(for="username") username
+        input(type="text" name="username")
+        label(for="userfirstname") firstname
+        input(type="text" name="userfirstname")
+        label(for="useraccess") Access level
+        input(type="text" name="useraccess")
+        input(type="submit")
+
+    

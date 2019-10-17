@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Page with handlebars</title>
+</head>
+<body>
+    <h4>Value in handlebars : </h4>
+    <p> {{ variable }} </p> <!-- twig like syntax -->
+    {{!-- #if value > 20 --}} <!--We cannot use LOGIC expression in handlebars, we set that in NodeJS instead with a boolean variable-->
+
+     {{#if isGreatherThan20 }} <!-- We had to define a variable first before returning to view, so we must remove ANY logic handlebars templates-->
+        <p>Value is greater than 20</p>
+    {{/if}}
+
+    {{#each books}} <!--no need to add iterative variable-->
+        <h3>{{ this.author }}</h3> <!--we use this instead -->
+        <p>{{ this.title }}</p>
+    {{/each}}
+</body>
+</html>

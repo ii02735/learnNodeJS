@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Page with handlebars</title>
+</head>
+<body>
+    <h4>Value in handlebars : </h4>
+    <p> <%= variable %> </p> <!-- jsp like syntax, add equal to print variable -->
+    <% if (value > 20) %> <!--Because it is plain JS in fact, we can use logic-->
+        <p>Value is greater than 20</p>
+    
+    <% for(let book of books) { %> <!--Plain JS for of loop-->
+        <h2><%= book.author %></h2>
+        <p><%= book.title %></p>
+    <% } %>
+</body>
+</html>

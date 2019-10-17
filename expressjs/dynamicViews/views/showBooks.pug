@@ -5,9 +5,17 @@ block title
 
 block body_content
     p.important Hello world !  <!--If you want to write attributes, you must use the CSS syntax-->
-
-    p Here is my dynamic variable : #{ dynamicValue }
-    each book in books
+    //example of if condition
+    if dynamicValue===undefined 
+        p no value
+    else
+        //value assignement
+        p.valueDetected="value has been set !" 
+    p Here is my dynamic variable : #{ dynamicValue===undefined?"no value":dynamicValue } <!--it is possible to write ternary conditions-->
+    //class plays also a variable name
+    p.valueDetected
+    //foreach
+    each book in books 
         div
             span 
                 //It is also possible to write attributes in parenthesis

@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Page with handlebars</title>
-</head>
-<body>
+<%- include('includes/header',{ titlePage: "hello world EJS !"}) -%>
+<%# In EJS, inheritence is not possible, but including a template is possible %>
     <h4>Value in handlebars : </h4>
     <p> <%= variable %> </p> <!-- jsp like syntax, add equal to print variable -->
     <% if (value > 20) %> <!--Because it is plain JS in fact, we can use logic-->

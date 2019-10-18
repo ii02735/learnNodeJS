@@ -20,3 +20,5 @@ block body
                  td= user.name
                  td= user.firstname
                  td(style=(user.access === "Unknown" ? "color:red;font-weight:bolder;" : ""))= user.access
+    br
+    a(href="/userForm") new User ?

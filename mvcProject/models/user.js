@@ -17,8 +17,8 @@ module.exports = class User{
             
             if(!err){
                 users = JSON.parse(fileContent); //conversion of JSON file to JS array
-            users.push(this); //pushing new element to converted array
-            fs.writeFile(pathFile, JSON.stringify(users), (err) => console.log(err)); //convert again JS Array to JSON and write that JSON into the file
+                users.push(this); //pushing new element to converted array
+                fs.writeFile(pathFile, JSON.stringify(users), (err) => console.log(err)); //convert again JS Array to JSON and write that JSON into the file
             }
             else
                 console.log(err);
@@ -48,7 +48,8 @@ module.exports = class User{
         fs.readFile(pathFile,(err,fileContent)=>{
             if(!err)
                 callback(JSON.parse(fileContent)); //Inside of that callback we send an array, here a filled one (from JSON.parse) because the read has been successful
-            callback([]); //Here an empty one because the read has failed
+            else
+                callback([]); //Here an empty one because the read has failed
         });
     }
 }
